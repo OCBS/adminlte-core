@@ -1,0 +1,20 @@
+= render 'config'
+- adminlte_action 'Просмотр'
+
+.row
+  .col-xs-12
+    .box
+      .box-header
+        h3.box-title
+          = resource.model_name.human
+          | :
+          '
+          = resource.try(:name).presence || resource.try(:title)
+      .box-body.no-padding
+        table.table
+          tbody
+            - resource.attributes.each do |k, v|
+              tr
+                td
+                  strong= resource.class.human_attribute_name k
+                td= v

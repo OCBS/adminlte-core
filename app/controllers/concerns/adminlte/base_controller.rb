@@ -8,7 +8,7 @@ module Adminlte
 
     module ClassMethods
       def local_prefixes
-        ['adminlte/application', controller_path]
+        [controller_path, 'adminlte/application']
       end
     end
   end
