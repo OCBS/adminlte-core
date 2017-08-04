@@ -1,4 +1,3 @@
-# coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'adminlte/core/version'
@@ -14,4 +13,15 @@ Gem::Specification.new do |spec|
   spec.license       = 'MIT'
 
   spec.require_paths = ['lib']
+
+  spec.add_dependency 'jquery-rails'
+  spec.add_dependency 'jquery-ui-rails'
+  spec.add_dependency 'turbolinks'
+
+  spec.add_dependency 'inherited_resources'
+  spec.add_dependency 'has_scope'
+  spec.add_dependency 'kaminari'
+  spec.add_dependency 'acts_as_list'
+  spec.add_dependency 'formtastic'
+  spec.add_dependency 'formtastic-bootstrap'
 end

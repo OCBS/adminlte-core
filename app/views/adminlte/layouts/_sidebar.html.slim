@@ -1,0 +1,23 @@
+aside.main-sidebar
+  section.sidebar
+    ul.sidebar-menu
+      - items.each do |item|
+        - next unless navigation_show?(item)
+        - if item.items.present?
+          li.treeview class=(:active if navigation_active?(item))
+            a href=navigation_url(item)
+              = navigation_icon item
+              span= item.title
+              i.fa.fa-angle-left.pull-right
+            ul.treeview-menu
+              - item.items.each do |item|
+                - next unless navigation_show?(item)
+                li class=(:active if navigation_active?(item))
+                  a href=navigation_url(item)
+                    i.fa.fa-circle-o.text-red
+                    span= item.title
+        - else
+          li class=(:active if navigation_active?(item))
+            a href=navigation_url(item)
+              = navigation_icon item
+              span= item.title

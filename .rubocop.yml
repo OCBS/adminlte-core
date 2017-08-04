@@ -10,10 +10,13 @@ Bundler/OrderedGems:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
+Style/ClassAndModuleChildren:
+  Enabled: false
+
 Style/Documentation:
   Enabled: false
 
-Style/SpaceInLambdaLiteral:
+Layout/SpaceInLambdaLiteral:
   EnforcedStyle: require_space
 
 Metrics/MethodLength:

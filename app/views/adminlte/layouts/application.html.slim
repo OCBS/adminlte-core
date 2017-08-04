@@ -1,0 +1,57 @@
+doctype html
+html
+  head
+    meta charset="utf-8"
+    meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+
+    title= ([adminlte_title, adminlte_config(:name)].compact.join ' | ').html_safe
+
+    meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    meta name="HandheldFriendly" content="True"
+    meta name="MobileOptimized" content="320"
+    meta name="viewport" content="width=device-width,minimal-ui"
+    meta http-equiv="cleartype" content="on"
+
+    meta name="apple-mobile-web-app-capable" content="yes"
+    meta name="mobile-web-app-capable" content="yes"
+    meta name="apple-mobile-web-app-title" content=adminlte_config(:name)
+    meta name="application-name" content=adminlte_config(:name)
+
+    = csrf_meta_tags
+
+    = stylesheet_link_tag 'adminlte/application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'adminlte/application', 'data-turbolinks-track': 'reload'
+
+  body.skin-red.sidebar-mini.fixed.action_name class=params[:controller].parameterize
+    .wrapper
+      = render partial: 'adminlte/layouts/header'
+      = render_navigation
+
+      .content-wrapper
+        - if adminlte_title.present?
+          section.content-header
+            h1 style='display: inline;'
+              = adminlte_title
+              '
+              small= adminlte_action
+
+            = content_for :adminlte_title_extra
+
+        section.content
+          - if notice
+            .alert.alert-success.alert-dismissable
+              i.fa.fa-check
+              button.close aria-hidden="true" data-dismiss="alert" type="button" ×
+              b = notice
+
+          - if alert
+            .alert.alert-danger.alert-dismissable
+              i.fa.fa-ban
+              button.close aria-hidden="true" data-dismiss="alert" type="button" ×
+              b = alert
+
+          = yield
+
+      footer.main-footer
+        strong
+          | &copy; #{Date.today.year}

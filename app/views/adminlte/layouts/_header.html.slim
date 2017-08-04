@@ -1,0 +1,17 @@
+header.main-header
+  = link_to '/', class: 'logo' do
+    span.logo-lg
+      b= adminlte_config(:name)
+
+  nav.navbar.navbar-static-top role="navigation"
+    a.sidebar-toggle data-toggle="offcanvas" href="#" role="button"
+      span.sr-only Toggle navigation
+    /.navbar-left
+    /  ul.nav.navbar-nav
+    /    li
+    /      a href="/" target="_blank"
+    /        i.fa.fa-home>
+    /        | Перейти на сайт
+
+    .navbar-custom-menu
+      ul.nav.navbar-nav
