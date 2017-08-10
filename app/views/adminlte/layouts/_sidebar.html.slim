@@ -14,7 +14,7 @@ aside.main-sidebar
                 - next unless navigation_show?(item)
                 li class=(:active if navigation_active?(item))
                   a href=navigation_url(item)
-                    i.fa.fa-circle-o.text-red
+                    = navigation_icon item
                     span= item.title
         - else
           li class=(:active if navigation_active?(item))
