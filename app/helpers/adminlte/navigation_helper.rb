@@ -9,7 +9,12 @@ module Adminlte
     end
 
     def navigation_icon(item)
-      content_tag(:i, '', class: "fa fa-#{item.icon}") if item.icon.present?
+      if item.icon.present?
+        classes = ['fa', "fa-#{item.icon}"]
+        classes << "text-#{item.color}" if item.color.present?
+
+        content_tag(:i, '', class: classes.join(' '))
+      end
     end
 
     def navigation_url(item)
@@ -40,8 +45,20 @@ module Adminlte
       val
     end
 
-    def navigation_labels(_item)
-      []
+    def navigation_labels(item)
+      return if item.labels.empty?
+
+      content_tag :div, class: 'pull-right-container' do
+        item.labels.reverse.each do |label|
+          label = { value: label } unless label.is_a? Hash
+
+          label[:color] ||= item.color
+          classes = ['label', 'pull-right']
+          classes << "bg-#{label[:color]}" if label[:color].present?
+
+          concat content_tag :small, navigation_normalize_property(label[:value]), class: classes.join(' ')
+        end
+      end
     end
 
     private

@@ -20,7 +20,7 @@ module Adminlte
       private
 
       def default_options
-        { if: nil, active_if: nil, icon: nil }
+        { if: nil, active_if: nil, icon: nil, color: nil }
       end
     end
   end

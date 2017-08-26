@@ -16,8 +16,10 @@ aside.main-sidebar
                   a href=navigation_url(item)
                     = navigation_icon item
                     span= item.title
+                    = navigation_labels item
         - else
           li class=(:active if navigation_active?(item))
             a href=navigation_url(item)
               = navigation_icon item
               span= item.title
+              = navigation_labels item

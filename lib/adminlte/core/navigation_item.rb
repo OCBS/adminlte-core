@@ -2,7 +2,7 @@ module Adminlte
   module Core
     class NavigationItem
       attr_accessor :navigation
-      attr_accessor :title, :url, :icon, :if, :active_if
+      attr_accessor :title, :url, :icon, :color, :labels, :if, :active_if
 
       delegate :items, to: :navigation
 
@@ -12,6 +12,8 @@ module Adminlte
         @title      = title
         @url        = url
         @icon       = options[:icon]
+        @color      = options[:color]
+        @labels     = [*options[:labels]]
         @if         = options[:if]
         @active_if  = options[:active_if]
 
