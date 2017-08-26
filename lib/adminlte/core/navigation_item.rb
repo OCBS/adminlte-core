@@ -30,7 +30,9 @@ module Adminlte
       end
 
       def url_by_controller_and_action(controller, action = :index)
-        self.url = -> { url_for controller: controller, action: action }
+        controller_absolute_path = '/' + controller.to_s.gsub(/^\//, '')
+
+        self.url = -> { url_for controller: controller_absolute_path, action: action }
         self.active_if = controller if active_if.nil?
       end
     end

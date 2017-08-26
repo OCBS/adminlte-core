@@ -66,9 +66,9 @@ module Adminlte
     def navigation_active_array(options)
       case options.length
       when 1
-        options[0].to_s == controller_name
+        options[0].to_s == controller_path
       when 2
-        options[0].to_s == controller_name && options[1].to_s == action_name
+        options[0].to_s == controller_path && options[1].to_s == action_name
       else
         false
       end
@@ -76,7 +76,7 @@ module Adminlte
 
     def navigation_active_hash(options)
       options = options.with_indifferent_access
-      options[controller_name].present? && [*options[controller_name]].map(&:to_s).include?(action_name)
+      options[controller_path].present? && [*options[controller_path]].map(&:to_s).include?(action_name)
     end
   end
 end
