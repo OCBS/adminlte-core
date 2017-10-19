@@ -22,6 +22,9 @@ html
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
+    = content_for :head
+    = render partial: 'adminlte/layouts/head'
+
   body.skin-red.sidebar-mini.fixed.action_name class=params[:controller].parameterize
     .wrapper
       = render partial: 'adminlte/layouts/header'
