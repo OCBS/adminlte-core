@@ -19,8 +19,8 @@ html
 
     = csrf_meta_tags
 
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag [Adminlte::Core.configuration.namespace, 'application'].compact.join('/'), media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag [Adminlte::Core.configuration.namespace, 'application'].compact.join('/'), 'data-turbolinks-track': 'reload'
 
     = content_for :head
     = render partial: 'adminlte/layouts/head'
